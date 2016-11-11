@@ -17,16 +17,19 @@ li{
 }
 
 .category-column{
+  width:16%;
   padding-left:0;
   display:inline-block;
   vertical-align:top;
 }
 .category-title{
+  padding-top:2rem;
+  font-size:1rem;
   color:white;
   background:#0108A1;
   border:2px solid black;
   text-align:center;
-  padding:1rem;
+  height:3rem;
 }
 .points{
   box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.75);
@@ -48,31 +51,36 @@ li{
   border:2px solid black;
   text-align:center;
   margin-bottom:1rem;
-  padding:40px;
+  padding:22px;
+}
+.answer{
+  color:red;
+  font-size:2rem;
+}
+.correct-answer{
+  color:green;
+  font-size:2rem;
 }
 .point-list{
   padding-left:0;
 }
 .modal{
   font-size: 2rem;
-position: absolute;
-background: rgba(0, 0, 0, 0.3);
-top: 6rem;
-left: 1rem;
-padding-right: 23rem;
-padding-left: 25rem;
-padding-top: 9rem;
-padding-bottom: 5rem;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.3);
+    top: 11rem;
+    left: 1rem;
+    padding-right: 17rem;
+    padding-left: 21rem;
+    padding-top: 8rem;
+    padding-bottom: 14rem;
   }
   .question{
-    color:#E49758;
     background: black;
     text-align: center;
     padding: 2rem;
     border-radius: 25px;
     color: white;
-    margin-top: 6rem;
-padding: 5rem;
   }
   .my-points{
     background:#0108A1;
@@ -92,4 +100,18 @@ font-size: 2rem;
 span:last-of-type{
   border-right:none;
 }
+  }
+  #answer{
+    color: white;
+    background: black;
+    border: none;
+    border-bottom: 2px solid white;
+    outline: none;
+    margin-right: 2rem;
+  }
+  #submit{
+    background: black;
+    border: 2px solid white;
+    color: white;
+    border-radius: 7px;
   }

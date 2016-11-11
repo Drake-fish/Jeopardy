@@ -1,69 +1,79 @@
 import React from 'react';
 import store from '../store';
+import _ from 'underscore';
+
+
 export default React.createClass({
   getInitialState(){
     return{
       clicked:false,
       answered:false,
-    }
+      correct:false
+    };
   },
   render(){
-    console.log(this.props.question[0]);
+      const questions=this.props.question[0];
+
     if(this.state.clicked===false && this.state.answered===false){
 
     return(
       <li className="points" onClick={this.handleQuestion}>
-      ${this.props.question[0].value}
+      ${questions.value}
       </li>
     )
   }else if(this.state.clicked===true && this.state.answered===false){
   return(
 <div>
 <li className="points" onClick={this.handleQuestion}>
-${this.props.question[0].value}
+${questions.value}
 </li>
   <div className="modal">
   <div className="question">
-  <h3>{this.props.question[0].question}</h3>
+  <h3>{questions.question}</h3>
   <form>
   <input id="answer" type="text" placeholder="Answer Here"/>
-  <input type="submit" value="Submit" onClick={this.handleSubmit}/>
+  <input id="submit" type="submit" value="Submit" onClick={this.handleSubmit}/>
   </form>
   </div>
   </div>
   </div>
 );
-}else if(this.state.clicked===true && this.state.answered===true){
+}else if(this.state.clicked===true && this.state.answered===true && this.state.correct===false){
   return(
     <li className="empty-points">
+    <span className="answer">{questions.answer.replace(/\<[\/]?i\>/, '')}</span>
     </li>
   )
+}else if(this.state.clicked===true && this.state.answered===true && this.state.correct===true){
+  return(
+  <li className="empty-points">
+  <span className="correct-answer">CORRECT!</span>
+  </li>
+);
 }
 },
 handleQuestion(e){
   this.setState({
     clicked:true,
     answered:false
-  })
+  });
 },
 handleSubmit(e){
   e.preventDefault();
   this.setState({
     clicked:true,
-    answered:true
-  })
-  let userAnswer=document.getElementById('answer').value.toLowerCase().italics();
-  console.log(userAnswer);
-  let answer= this.props.question[0].answer.toLowerCase().italics();
-  if(userAnswer.indexOf(answer)>-1){
+    answered:true,
+  });
+  let userAnswer=document.getElementById('answer').value.toLowerCase();
+  let answer= this.props.question[0].answer.toLowerCase().replace(/\<[\/]?i\>/g, '');
+  if(userAnswer!=='' && answer.includes(userAnswer)){
+    this.setState({
+      correct:true
+    });
     store.session.addPoints(this.props.question[0].value);
     store.session.questionsAnsweredRight();
-    console.log(store.session.get('points'));
-    alert('WOW thats correct! You have been awarded $'+this.props.question[0].value);
-}else{
-  alert('That is incorrect! The Correct answer is '+ this.props.question[0].answer);
 }
  store.session.questionsAnswered();
 
 }
-})
+});

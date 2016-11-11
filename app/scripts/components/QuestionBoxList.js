@@ -3,7 +3,6 @@ import QuestionBox from './QuestionBox';
 export default React.createClass({
 
   render(){
-      console.log(this.props);
     let question1= this.props.clues.filter((clue,i,arr)=>{
       if(clue.value===200){
         return clue;
