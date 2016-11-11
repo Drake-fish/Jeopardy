@@ -1,0 +1,83 @@
+#container{
+  background:url('http://www.slotsumo.com/wp-content/uploads/2015/03/jeopardy_slot_bg.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+li{
+  list-style:none;
+}
+.whole-board{
+  margin-left:6rem;
+  margin-right:6rem;
+}
+
+.category-column{
+  padding-left:0;
+  margin-top:2rem;
+  display:inline-block;
+  vertical-align:top;
+}
+.category-title{
+  color:#E49758;
+  background:#0108A1;
+  border:2px solid black;
+  text-align:center;
+  padding:1rem;
+}
+.points{
+  font-size:2.7rem;
+  color:#E49758;
+  background:#0108A1;
+  border:2px solid black;
+  padding:1rem;
+  text-align:center;
+  margin-bottom:1rem;
+}
+.empty-points{
+  color:#E49758;
+  background:#0108A1;
+  border:2px solid black;
+  text-align:center;
+  margin-bottom:1rem;
+  padding:25px;
+}
+.point-list{
+  padding-left:0;
+}
+.modal{
+  font-size: 2rem;
+position: absolute;
+background: rgba(0, 0, 0, 0.3);
+top: 1rem;
+left: 1rem;
+padding-right: 23rem;
+padding-left: 25rem;
+padding-top: 9rem;
+padding-bottom: 10rem;
+  }
+  .question{
+    color:#E49758;
+    background: black;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 25px;
+    color: white;
+  }
+  .my-points{
+    background:#0108A1;
+    color:#E49758;
+    border: 2px solid black;
+margin-left: 5rem;
+margin-right: 6rem;
+span{
+  display: inline-block;
+padding-left: 2rem;
+border-right: 2px solid black;
+padding-right: 9rem;
+line-height: 4rem;
+font-size: 2rem;
+}
+span:last-of-type{
+  border-right:none;
+}
+  }
