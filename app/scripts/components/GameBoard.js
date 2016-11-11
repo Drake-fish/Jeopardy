@@ -7,7 +7,7 @@ export default React.createClass({
       return <GameBoardColumn key={category.title} category={category}/>
     });
     return(
-      <ul class="whole-board">
+      <ul className="whole-board">
       {allCategories}
       </ul>
     );

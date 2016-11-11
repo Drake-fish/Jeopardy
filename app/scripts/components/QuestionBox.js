@@ -13,14 +13,14 @@ export default React.createClass({
 
     return(
       <li className="points" onClick={this.handleQuestion}>
-      {this.props.question[0].value}
+      ${this.props.question[0].value}
       </li>
     )
   }else if(this.state.clicked===true && this.state.answered===false){
   return(
 <div>
 <li className="points" onClick={this.handleQuestion}>
-{this.props.question[0].value}
+${this.props.question[0].value}
 </li>
   <div className="modal">
   <div className="question">
@@ -52,12 +52,16 @@ handleSubmit(e){
     clicked:true,
     answered:true
   })
-  let userAnswer=document.getElementById('answer').value.toLowerCase();
-  let answer= this.props.question[0].answer.toLowerCase();
+  let userAnswer=document.getElementById('answer').value.toLowerCase().italics();
+  console.log(userAnswer);
+  let answer= this.props.question[0].answer.toLowerCase().italics();
   if(userAnswer.indexOf(answer)>-1){
     store.session.addPoints(this.props.question[0].value);
     store.session.questionsAnsweredRight();
     console.log(store.session.get('points'));
+    alert('WOW thats correct! You have been awarded $'+this.props.question[0].value);
+}else{
+  alert('That is incorrect! The Correct answer is '+ this.props.question[0].answer);
 }
  store.session.questionsAnswered();
 
